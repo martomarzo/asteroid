@@ -24,8 +24,10 @@ def main():
                 return
         
         screen.fill(color = (0,0,0))
+        dt=clock.tick_busy_loop(60)/1000
+        player.update(dt)
         player.draw(screen)        
-        dt=clock.tick_busy_loop(60)
+        
         pygame.display.flip()
         clock.tick(60)            
         
