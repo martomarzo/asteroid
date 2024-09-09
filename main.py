@@ -46,12 +46,19 @@ def main():
         
         for item in updatable:
             item.update(dt)
+            # player collision check
         for item in asteroids:
             if item.collision(player) == True:
                 print("Game Over!")
                 raise SystemExit 
             else:
                 pass
+            #shot collision check
+        for asteroid in asteroids:
+            for shot in shots:
+                if asteroid.collision(shot) == True:
+                    shot.kill()
+                    asteroid.split()
         for item in drawable:
             item.draw(screen)        
         
